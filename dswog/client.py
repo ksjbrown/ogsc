@@ -4,8 +4,6 @@ from typing import Protocol
 
 import discord
 
-from dswog.secret import BOT_TOKEN
-
 
 class DswogTask(Protocol):
     async def execute(self, client: DswogClient):
