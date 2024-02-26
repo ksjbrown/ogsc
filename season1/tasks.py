@@ -1,7 +1,10 @@
+from collections import defaultdict
 import datetime
-from typing import Any, Callable
+from typing import Any, Callable, Sequence
 
 import discord
+
+from season1.points import OgscPointsTable
 
 
 class CollectVotePointsTask:
@@ -10,17 +13,17 @@ class CollectVotePointsTask:
             channel_id: int, 
             start_time: datetime.datetime, 
             stop_time: datetime.datetime,
-            participation_points: int,
-            win_points: int,
-            process_scores: Callable[[dict[discord.User, int]], Any]
+            assign_participation_points: Callable[[int], None],
+            assign_win_points: Callable[[int], None],
+            previous_winners: Sequence[int],
         ) -> None:
         
         self.channel_id = channel_id
         self.start_time = start_time
         self.stop_time = stop_time
-        self.participation_points = participation_points
-        self.win_points = win_points
-        self.process_scores = process_scores
+        self.assign_participation_points = assign_participation_points
+        self.assign_win_points = assign_win_points
+        self.previous_winners = previous_winners
 
     async def execute(self, client: discord.Client):
         channel = client.get_channel(self.channel_id)
@@ -30,26 +33,22 @@ class CollectVotePointsTask:
         if not isinstance(channel, discord.TextChannel):
             return
 
-        best_messages: list[discord.Message] = []
-        best_message_score: int = 0
         participants: dict[int, discord.User] = {}
+        message_ranks: dict[int, list[discord.Message]] = defaultdict(lambda: list())
 
         async for message in channel.history(limit=None, after=self.start_time, before=self.stop_time):
-        # async for message in channel.history(limit=None):
-            participants[message.author.id] = message.author # type: ignore
+            if message.author.id not in participants:
+                participants[message.author.id] = message.author # type: ignore
             message_score = len(message.reactions)
-            if message_score > best_message_score:
-                best_messages.clear()
-                best_message_score = message_score
-            if message_score == best_message_score:
-                best_messages.append(message)
-
-        scores: dict[discord.User, int] = {}
-
+            message_ranks[message_score].append(message)
+            
         for author in participants.values():
-            scores[author] = self.participation_points
+            self.assign_participation_points(author.id)
 
-        for best_message in best_messages:
-            scores[best_message.author] += self.win_points # type: ignore
-
-        self.process_scores(scores)
+        for message_score, messages in sorted(message_ranks.items(), key=lambda p: p[1], reverse=True):
+            new_winner_messages = [m for m in messages if m.author.id not in self.previous_winners]
+            if not new_winner_messages:
+                continue
+            for new_winner_message in new_winner_messages:
+                self.assign_win_points(new_winner_message.author.id)
+            break
