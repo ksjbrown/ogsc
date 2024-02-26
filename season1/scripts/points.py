@@ -1,14 +1,16 @@
 import datetime
-from dswog.channels import CHANNEL_TEST_CHAT, CHANNELS_S1
 from dswog.client import DswogClient
 from dswog.secret import BOT_TOKEN
-from dswog.tasks import DisconnectClientTask, SendMessageTask, CollectVotePointsTask, VoiceStateChangedTask
+from dswog.tasks import DisconnectClientTask, VoiceStateChangedTask
+
+from season1.channels import CHANNEL_ID_MEMES
+from season1.tasks import CollectVotePointsTask
 
 def main():
     on_ready_tasks = [
         # SendMessageTask(CHANNEL_TEST_CHAT, "hello again"),
         CollectVotePointsTask(
-            channel_id=CHANNELS_S1["memes"][0],
+            channel_id=CHANNEL_ID_MEMES,
             start_time=datetime.datetime(2024, 2, 22, 0, 0, 0),
             stop_time=datetime.datetime(2024, 2, 23, 23, 59, 59),
             participation_points=2,

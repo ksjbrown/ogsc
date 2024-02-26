@@ -16,7 +16,7 @@ There will appear in the top left of your Discord window, and information specif
 
 ## Roles
 
-Visit the [roles](https://discord.com/channels/691656646384156783/1205540890689671198) channel, and get some shiny new roles to adjust what you can see in the server, and how you appear to other users.
+Visit the [#roles](https://discord.com/channels/691656646384156783/1205540890689671198) channel, and get some shiny new roles to adjust what you can see in the server, and how you appear to other users.
 
 ## Suggestions 
 
@@ -31,24 +31,16 @@ So please keep an eye out for announcements for these and give us that sweet swe
 
 ## Chat
 
-General discussion can be posted in the [#chat](https://discord.com/channels/691656646384156783/1205541155970748476) channel.
+General discussion can be posted in the [#chat](https://discord.com/channels/691656646384156783/691656646384156786) channel.
 
 For some very popular games with a lot of activity, there are also some dedicated text channels, patch note bots, etc.
 See if anything pops up when you choose the player role for your favourite game!
 
-If you just wanna hang out, you probably wanna be in [hanging-out](https://discord.com/channels/691656646384156783/1205541385051312208).
+If you just wanna hang out, you probably wanna be in [#hanging-out](https://discord.com/channels/691656646384156783/1205541385051312208).
 
-Or, if you have a party ready to go, jump into [new-room](https://discord.com/channels/691656646384156783/1207380149776158811), and a brand-spanking new room will be created just for you!
+Or, if you have a party ready to go, join the [#create-new-room](https://discord.com/channels/691656646384156783/1207380149776158811) channel, and our helpful bots will create a brand-spanking new room just for you!
 
 ## Free Stuff
 
 Everyone loves free stuff, right?
 Check out the [#free-epic-games](https://discord.com/channels/691656646384156783/1205542033628856320) and [#free-steam-games](https://discord.com/channels/691656646384156783/1205542074582179850) channels, to see if theres something nice to pick up for free! 
-
-## Economy / Levels
-
-The organisational bot that manages roles and assignment also provides a levelling system in Discord.
-Being active in text chats will earn you experience points, and with enough experience points you will be able to level up :partying_face:
-We are not exactly sure how or if we are going to use this for something in the future, but you never know :wink:.
-To be safe, get involved!
-Check your level, or another user's level with the `/rank` command.

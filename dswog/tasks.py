@@ -3,6 +3,8 @@ from typing import Any, Callable, Sequence
 
 import discord
 
+from season1.servers import SERVER_ID_OGSC
+
 class DisconnectClientTask:
     async def execute(self, client: discord.Client):
         await client.close()
@@ -14,11 +16,8 @@ class SendMessageTask:
 
     async def execute(self, client: discord.Client):
         channel = client.get_channel(self.channel_id)
-        if not isinstance(channel, discord.TextChannel):
-            return
-
         try:
-            await channel.send(self.msg) 
+            await channel.send(self.msg) #type: ignore
         except:
             ...
 
@@ -34,55 +33,40 @@ class RevealChannelTask:
     async def execute(self, client: discord.Client):
         ...
 
-class CollectVotePointsTask:
+class CreateEventTask:
+
     def __init__(
-            self, 
-            channel_id: int, 
-            start_time: datetime.datetime, 
-            stop_time: datetime.datetime,
-            participation_points: int,
-            win_points: int,
-            process_scores: Callable[[dict[discord.User, int]], Any]
+        self,
+        server_id: int,
+        name: str,
+        location: str,
+        description: str,
+        start_time: datetime.datetime,
+        end_time: datetime.datetime,
         ) -> None:
-        
-        self.channel_id = channel_id
+        self.server_id = server_id
+        self.name = name
+        self.location = location
+        self.description = description
         self.start_time = start_time
-        self.stop_time = stop_time
-        self.participation_points = participation_points
-        self.win_points = win_points
-        self.process_scores = process_scores
+        self.end_time = end_time
+
 
     async def execute(self, client: discord.Client):
-        channel = client.get_channel(self.channel_id)
-        if not channel:
+        guild = client.get_guild(self.server_id)
+
+        if guild is None:
             return
         
-        if not isinstance(channel, discord.TextChannel):
-            return
-
-        best_messages: list[discord.Message] = []
-        best_message_score: int = 0
-        participants: dict[int, discord.User] = {}
-
-        async for message in channel.history(limit=None, after=self.start_time, before=self.stop_time):
-        # async for message in channel.history(limit=None):
-            participants[message.author.id] = message.author
-            message_score = len(message.reactions)
-            if message_score > best_message_score:
-                best_messages.clear()
-                best_message_score = message_score
-            if message_score == best_message_score:
-                best_messages.append(message)
-
-        scores: dict[discord.User, int] = {}
-
-        for author in participants.values():
-            scores[author] = self.participation_points
-
-        for best_message in best_messages:
-            scores[best_message.author] += self.win_points
-
-        self.process_scores(scores)
+        await guild.create_scheduled_event(
+            name=self.name,
+            location=self.location,
+            description=self.description,
+            start_time=self.start_time.astimezone(),
+            end_time=self.end_time.astimezone(),
+            entity_type=discord.EntityType.external,
+            privacy_level=discord.PrivacyLevel.guild_only,
+        )
 
 class VoiceStateChangedTask:
     def __init__(self) -> None:
