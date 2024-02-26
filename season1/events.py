@@ -16,12 +16,14 @@ Rules:
 
 _meme_start_date = datetime.datetime(2024, 4, 1)
 
-EVENTS_MEMES = {
-    1: {
+
+EVENTS_MEMES: dict[int, dict] = {}
+for i in range(10):
+    EVENTS_MEMES[i+1] = {
         "server_id": SERVER_ID_OGSC,
-        "name": "OGSC Meme Competition #1",
+        "name": "OGSC Meme Competition #{}".format(i+1),
         "location": CHANNEL_LINK_MEMES,
         "description": _meme_desc,
-        "start_time": _meme_start_date,
-        "end_time": _meme_start_date + datetime.timedelta(weeks=1),
-    }}
+        "start_time": _meme_start_date + datetime.timedelta(weeks=i),
+        "end_time": _meme_start_date + datetime.timedelta(weeks=i+1),
+    }

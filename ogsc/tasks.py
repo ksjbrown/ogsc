@@ -1,9 +1,7 @@
 import datetime
-from typing import Any, Callable, Sequence
 
 import discord
 
-from season1.servers import SERVER_ID_OGSC
 
 class DisconnectClientTask:
     async def execute(self, client: discord.Client):

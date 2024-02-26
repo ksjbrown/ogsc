@@ -1,7 +1,8 @@
 import datetime
-from dswog.client import DswogClient
-from dswog.secret import BOT_TOKEN
-from dswog.tasks import DisconnectClientTask, VoiceStateChangedTask
+
+from ogsc.client import OgscClient
+from ogsc.secret import BOT_TOKEN
+from ogsc.tasks import DisconnectClientTask, VoiceStateChangedTask
 
 from season1.channels import CHANNEL_ID_MEMES
 from season1.tasks import CollectVotePointsTask
@@ -23,7 +24,7 @@ def main():
         VoiceStateChangedTask()
     ]
 
-    client = DswogClient(
+    client = OgscClient(
         on_ready_tasks=on_ready_tasks,
         # on_voice_state_changed_tasks=on_voice_state_changed_tasks,
     )

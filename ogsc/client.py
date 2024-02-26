@@ -5,28 +5,28 @@ from typing import Protocol, Sequence
 import discord
 
 
-class DswogOnReadyTask(Protocol):
+class OgscOnReadyTask(Protocol):
     async def execute(
         self, 
-        client: DswogClient,
+        client: OgscClient,
         ):
         ...
 
-class DswogOnVoiceStateChangedTask(Protocol):
+class OgscOnVoiceStateChangedTask(Protocol):
     async def execute(
         self, 
-        client: DswogClient, 
+        client: OgscClient, 
         member: discord.Member, 
         before: discord.VoiceState, 
         after: discord.VoiceState,
         ):
         ...
 
-class DswogClient(discord.Client):
+class OgscClient(discord.Client):
     def __init__(
         self, 
-        on_ready_tasks: Sequence[DswogOnReadyTask] = [],
-        on_voice_state_changed_tasks: Sequence[DswogOnVoiceStateChangedTask] = []
+        on_ready_tasks: Sequence[OgscOnReadyTask] = [],
+        on_voice_state_changed_tasks: Sequence[OgscOnVoiceStateChangedTask] = []
         ) -> None:
         super().__init__(intents=discord.Intents.default())
         self.on_ready_tasks = [*on_ready_tasks]
