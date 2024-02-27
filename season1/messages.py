@@ -19,9 +19,9 @@ There will appear in the top left of your Discord window, and information specif
 
 Visit the [#roles](https://discord.com/channels/691656646384156783/1205540890689671198) channel, and get some shiny new roles to adjust what you can see in the server, and how you appear to other users.
 """,
-"""## Suggestions 
+"""## Feedback
 
-If you have any suggestions for the server (ideas for an event, you want a specific channel for your favourite game, etc.) feel free to write a message in the [#suggestions](https://discord.com/channels/691656646384156783/1205547775706669166) channel, or react to suggestions there to show your support.
+If you have any suggestions for the server (ideas for an event, you want a specific channel for your favourite game, etc.) feel free to write a message in the [#feedback](https://discord.com/channels/691656646384156783/1205547775706669166) channel, or react to suggestions there to show your support.
 If a suggestion gets enough interest, we will be happy to implement anything we can :smile:.
 """,
 """## Surveys
@@ -56,7 +56,7 @@ We hope you will enjoy participating over the next few weeks, and maybe win some
 """,
 """## How does it work?
 
-Season 1 will last a total of roughly 10 weeks, starting from 4th March 2024 until 12th May 2024.
+Season 1 will last a total of roughly 10 weeks, with the exact start date to be confirmed (will be in the next week or two!).
 Over the course of the Season, you will be given various opportunities to earn Season Points.
 These can be earned through participating in competitions, being active in the server, and winning tournaments!
 
@@ -71,40 +71,52 @@ But just being involved will get you a long way: there are over 300 points avail
 """,
 """## Events
 
-A more detailed description of upcoming tournament events will be provided in the [news]() channel closer to the time.
-For now, the planned points breakdown is outlined below:
+Events will be announced some time before they begin, with Season Points up for grabs also described.
+Check the [#news](https://discord.com/channels/691656646384156783/1205540821810675752) channel, or the Events tab for new events!
+""",
+]
 
-### Grand Opening (50 Season Points available):
-  * Participation: 50 Season Points
-### Seasonal Survey (100 Season Points available):
-  * Participation: 100 Season Points
-### Weekly Meme competition (75 Season Points available):
-  * Participation: 5 Season Points
-  * Winner (meme with most reactions): 25 Season Points
-### Bi-Weekly Clip Competition (150 Season Points available):
-  * Participation: 10 Season Points
-  * Winner (clip with most reactions): 50 Season Points
-  * Bonus multiplier 1.5x Participation and Win Points for all featured members, if clips feature more than one member of the Gaming Social Club
-### International OGSC Tournament (250 Season Points available):
-  * Will be played in Squads, Squads can be organised yourself, external players are also welcome.
-  * Game TBC, based on survey responses
-  * Participation: 25 Season Points
-  * 1st Place: 200 Season Points
-  * 2nd Place: 150 Season Points
-  * 3rd Place: 100 Season Points
-  * Bonus +25 Season Points if your team contains mixed DSA/S4/Wirk team members
-### Local OGSC LAN Tournament (250 Season Points available):
-  * Game TBC, based on survey responses
-  * Participation: 50 Season Points
-  * 1st Place: 200 Season Points 
-  * 2nd Place: 150 Season Points 
-  * 3rd Place: 100 Season Points
-### OGSC Server Top Rank (125 Season Points available):
-  * Rank is measured by the Probot /rank command at the end of the season. 
-  * 1st Place: 125 Season Points
-  * 2nd Place: 100 Season Points
-  * 3rd Place: 75 Season Points
-  * 4th Place: 50 Season Points
-  * 5th Place: 25 Season Points
+MESSAGES_NEWS_INTRODUCING_OGSC_MAKEOVER = [
+    """# Hello World!
+
+Good Evening Gamers!
+It's a new year, and the Online Gaming Social Clubs of DSA, S4 and Wirk have decided to put aside their competitive differences, and join forces to create a more organised, involved, and hopefully fun community for us all!
+
+We've already implemented some changes, and have a few things planned for the upcoming future.
+""",
+"""## Server Makeover
+
+As you may have noticed, the server has had a bit of a makeover.
+Some things you can already see:
+### Focused Channels and Content
+
+We have introduced channels specific for different types of content.
+This includes:
+
+* Dedicated channels for [news](https://discord.com/channels/691656646384156783/1205540821810675752), [info](https://discord.com/channels/691656646384156783/1205540718823612477), [role assignment](https://discord.com/channels/691656646384156783/1205540890689671198), other boring stuff.
+* Centralised Social channels for [text chat](https://discord.com/channels/691656646384156783/691656646384156786), [voice chat](https://discord.com/channels/691656646384156783/1205541385051312208), and of course the [spicey memes](https://discord.com/channels/691656646384156783/691659994357301318).
+* Game-Specific channels and content: Self-select player roles in the [roles channel](https://discord.com/channels/691656646384156783/1205540890689671198) to get updates about patch notes and more, specific for each game.
+* Links to the current free games on [Epic Games](https://discord.com/channels/691656646384156783/1205542033628856320) and [Steam](https://discord.com/channels/691656646384156783/1205542074582179850)
+* And more! Do some exploring and see what else you can find ;)
+""",
+"""## Upcoming Events
+
+In the next week or so, we will announce our first ever Community Event - ***Season 1 of the OGSC.***
+This will feature a range of events and competitions (some smaller, some BIGGER) over the course of around 10 weeks.
+Participating in these events will earn you Season Points, and winning them will earn you even more.
+The players who earn the most Season Points at the end of the season will be rewarded with a small prize, and entry is free! So you have nothing to lose :)
+
+More info on the Season and Events in general will be provided as the time approaches.
+""",
+"""## So What Now?
+
+We are still in the process of rolling stuff out, but want to get everyone informed of whats to come as soon as possible!
+Feedback is always welcome, feel free to make comments in the [#feedback](https://discord.com/channels/691656646384156783/1205547775706669166) channel, this will be the primary place we monitor for feedback.
+Please don't reply to OGSC Assistant, he is a little slow and doesn't know how to read his messages.
+Maybe this will change in the future... 
+
+Hope you're all as excited as we are! And see you all online ;)
+
+The OGSC Admin Team
 """,
 ]
