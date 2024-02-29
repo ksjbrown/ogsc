@@ -5,23 +5,6 @@ from typing import Protocol, Sequence
 import discord
 
 
-class OgscOnReadyTask(Protocol):
-    async def execute(
-        self, 
-        client: OgscClient,
-        ):
-        ...
-
-class OgscOnVoiceStateChangedTask(Protocol):
-    async def execute(
-        self, 
-        client: OgscClient, 
-        member: discord.Member, 
-        before: discord.VoiceState, 
-        after: discord.VoiceState,
-        ):
-        ...
-
 class OgscClient(discord.Client):
     def __init__(
         self, 
@@ -44,3 +27,21 @@ class OgscClient(discord.Client):
         ):
         for task in self.on_voice_state_changed_tasks:
             await task.execute(self, member, before, after)
+
+
+class OgscOnReadyTask(Protocol):
+    async def execute(
+        self, 
+        client: OgscClient,
+        ):
+        ...
+
+class OgscOnVoiceStateChangedTask(Protocol):
+    async def execute(
+        self, 
+        client: OgscClient, 
+        member: discord.Member, 
+        before: discord.VoiceState, 
+        after: discord.VoiceState,
+        ):
+        ...

@@ -120,3 +120,13 @@ Hope you're all as excited as we are! And see you all online ;)
 The OGSC Admin Team
 """,
 ]
+
+MESSAGE_NOTIFY_PRE_GRAND_OPENING = [
+    """Hey friends!
+
+Hope you're all liking the new server! :innocent:
+
+Tomorrow evening we would like to kick things off with a super casual gaming round, say hello to members new and old, that kinda thing.
+Come along if you're free kick the gaming year off in style!
+"""
+]

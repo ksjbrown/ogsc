@@ -1,10 +1,8 @@
 from collections import defaultdict
 import datetime
-from typing import Any, Callable, Sequence
+from typing import Callable, Sequence
 
 import discord
-
-from season1.points import OgscPointsTable
 
 
 class CollectVotePointsTask:

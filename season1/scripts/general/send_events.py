@@ -1,19 +1,20 @@
 from ogsc.client import OgscClient
 from ogsc.secret import BOT_TOKEN
 from ogsc.tasks import CreateEventTask, DisconnectClientTask
-
-from season1.events import EVENTS_MEMES
-
+from season1.events import EVENT_PRE_GRAND_OPENING
 
 def main():
     on_ready_tasks = []
-    for event in EVENTS_MEMES.values():
-        on_ready_tasks.append(CreateEventTask(**event))
+    
+    # add events to send below
+    on_ready_tasks.append(
+        CreateEventTask(
+            **EVENT_PRE_GRAND_OPENING.to_kwargs(),
+        ),
+    )
+    # add events to send above
 
     on_ready_tasks.append(DisconnectClientTask())
-
-    # for message in MESSAGES_S1_WELCOME:
-    #     on_ready_tasks.append(SendMessageTask(CHANNEL_ID_S1_WELCOME, message))
 
     client = OgscClient(
         on_ready_tasks=on_ready_tasks,
